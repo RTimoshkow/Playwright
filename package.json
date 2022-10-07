@@ -1,0 +1,14 @@
+{
+  "name": "3_playwright",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node NetologyTest.js"
+  },
+  "author": "",
+  "devDependencies": {
+    "@playwright/test": "^1.26.1",
+    "playwright": "^1.26.1"
+  }
+}
