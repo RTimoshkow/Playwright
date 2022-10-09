@@ -11,7 +11,7 @@ test("invalid value", async ({ page }) => {
   await page.locator("input[name='password']").fill("password");
   await page.click("[data-testid='login-submit-btn']");
   await page.isVisible("text=Неверный email");
-  await page.screenshot({ path: './screenshot/invalidValue.png'});
+  //await page.screenshot({ path: './screenshot/invalidValue.png'});
 });
 
 test("authorization", async ({ page }) => {
@@ -24,7 +24,7 @@ test("authorization", async ({ page }) => {
   await page.locator("input[name='password']").fill(validData.password);
   await page.click("[data-testid='login-submit-btn']");
   await page.isVisible("text=Мои курсы и профессии");
-  await page.screenshot({ path: './screenshot/authorization.png'});
+  //await page.screenshot({ path: './screenshot/authorization.png'});
 });
 
 test("invalid password", async ({ page }) => {
