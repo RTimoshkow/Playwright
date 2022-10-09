@@ -1,4 +1,5 @@
 const { chromium } = require("playwright");
+const validData = require('./user');
 
 (async () => {
   const browser = await chromium.launch({
@@ -7,15 +8,14 @@ const { chromium } = require("playwright");
     devtools: true
   });
   const page = await browser.newPage();
-  await page.goto("https://netology.ru/?modal=sign_in");
+  await page.goto("https://netology.ru/?modal=sign_in", {waitUntil: "commit"});
   await page.click("input[name='email']");
-  await page.locator("input[name='email']").fill("userEmail");
+  await page.locator("input[name='email']").fill(validData.userEmail);
   await page.click("input[name='password']");
-  await page.locator("input[name='password']").fill("password");
+  await page.locator("input[name='password']").fill(validData.password);
   await page.click("[data-testid='login-submit-btn']");
-  await page.isVisible("text=Неверный email");
   //await expect(page.locator("input[name='email']+span")).toHaveText(/Неверный email/);
-  //await page.pause();
+  await page.pause();
 
   //assertion
   await browser.close();
